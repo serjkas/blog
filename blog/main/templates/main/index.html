@@ -1,8 +1,23 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Главная страница{% endblock%}
+{% block title %}{{ title }}{% endblock%}
 
 {% block content %}
-    <h1>Главная страница</h1>
-    <p>тест</p>
+   <div class="features">
+       <h1>{{ title }}</h1>
+       <p>text text text</p>
+       <button class="btn btn-warning">хы</button>
+
+       {% for i in values %}
+            {% if i == 'Hello' %}
+
+                    <p>{{ i|upper }}</p>
+
+            {% endif %}
+       {% endfor%}
+       {% for i in obj %}
+            <p>{{ i}}</p>
+       {% endfor%}
+
+   </div>
 {% endblock%}
