@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Article
+
+
 # Create your views here.
 
 
@@ -11,3 +13,7 @@ def news_home(request):
     # одна запись
     # news = Article.objects.order_by('date')[:1]
     return render(request, 'news/news_home.html', {'news': news})
+
+
+def create(request):
+    return render(request, 'news/create.html', {})
