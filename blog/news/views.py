@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Article
 from .forms import  Article_form
 
@@ -16,9 +16,18 @@ def news_home(request):
 
 
 def create(request):
+    error = ''
+    if request.method == "POST":
+        form = Article_form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            error = 'Данные не верны'
     form = Article_form()
 
     data = {
-        'form': form
+        'form': form,
+        'error': error
     }
     return render(request, 'news/create.html', data)
