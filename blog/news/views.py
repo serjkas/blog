@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render,redirect
 from .models import Article
-from .forms import  Article_form
+from .forms import Article_form
 
 # Create your views here.
 
